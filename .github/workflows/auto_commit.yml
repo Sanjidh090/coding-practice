@@ -5,26 +5,23 @@ on:
     - cron: '0 * * * *'  # Runs every hour
   push:
     branches:
-      - main  # Or 'master' if that's your default branch
-  pull_request:
-    branches:
       - main
 
 jobs:
   commit_changes:
-    runs-on: ubuntu-latest  # GitHub-hosted runner (Ubuntu environment)
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Check out the repository to make changes
+        uses: actions/checkout@v2
 
       - name: Set up Git
         run: |
-          git config --global user.name "Sanjidh090"  # Replace with your GitHub username
-          git config --global user.email "sanjid9657@gmail.com"  # Replace with your email
+          git config --global user.name "Sanjidh090"
+          git config --global user.email "sanjid9657@gmail.com"
 
       - name: Commit and Push Changes
         run: |
           git add .
           git commit -m "Auto commit: Update practice code"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Sanjidh090/coding-practice.git
+          git push origin main
