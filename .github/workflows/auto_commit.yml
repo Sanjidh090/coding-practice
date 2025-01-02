@@ -2,10 +2,13 @@ name: Auto Commit and Push Changes
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
+    - cron: '0 * * * *'  # Runs every hour (change this to your preferred frequency)
   push:
     branches:
       - main  # Or 'master' if that's your default branch
+  pull_request:
+    branches:
+      - main
 
 jobs:
   commit_changes:
@@ -25,34 +28,3 @@ jobs:
           git add .
           git commit -m "Auto commit: Update practice code"
           git push origin main  # Push to the `main` branch (use `master` if necessary)
-
-name: Auto Commit and Push Changes
-
-on:
-  schedule:
-    - cron: '0 * * * *'  # Runs every hour (change this to your preferred frequency)
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  commit_changes:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Git
-        run: |
-          git config --global user.name "Sanjidh090"
-          git config --global user.email "sanjid9657@gmail.com"
-
-      - name: Commit and Push Changes
-        run: |
-          git add .
-          git commit -m "Auto commit: Update practice code"
-          git push origin main
-
