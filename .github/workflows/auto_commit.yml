@@ -12,23 +12,19 @@ on:
 
 jobs:
   commit_changes:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # GitHub-hosted runner (Ubuntu environment)
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2  # Check out the repository to make changes
 
       - name: Set up Git
         run: |
-          git config --global user.name "Sanjidh090"
-          git config --global user.email "sanjid9657@gmail.com"
+          git config --global user.name "Sanjidh090"  # Replace with your GitHub username
+          git config --global user.email "sanjid9657@gmail.com"  # Replace with your email
 
-      - name: Check for changes
-        run: |
-          git diff --exit-code || echo "Changes detected, committing..."
-      
       - name: Commit and Push Changes
         run: |
           git add .
-          git commit -m "Auto commit: Update practice code" || echo "No changes to commit"
-          git push origin main
+          git commit -m "Auto commit: Update practice code"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Sanjidh090/coding-practice.git
