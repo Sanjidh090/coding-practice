@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1736329356 source:c:\users\sanji\downloads\prac01\main.cpp
+	<iostream>
+	<fstream>
+
+1736330119 source:c:\users\sanji\downloads\prac01\untitled1.cpp
+	<iostream>
+	<string>
+
