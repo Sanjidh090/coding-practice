@@ -2,7 +2,6 @@
 #include <cmath>
 using namespace std;
 
-// Class to represent a quadratic equation
 class QuadraticEquation {
 private:
     double a, b, c;  // Coefficients of the equation
