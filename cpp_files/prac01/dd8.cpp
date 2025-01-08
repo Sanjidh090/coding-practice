@@ -7,7 +7,7 @@ private:
     double a, b, c;  // Coefficients of the equation
 
 public:
-    // Constructor to initialize the coefficients
+    //Constructor to initialize the coefficients
     QuadraticEquation(double a, double b, double c) : a(a), b(b), c(c) {}
 
     // Method to calculate and display the roots
