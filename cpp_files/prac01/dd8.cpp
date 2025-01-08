@@ -8,7 +8,12 @@ private:
 
 public:
     //Constructor to initialize the coefficients
-    QuadraticEquation(double a, double b, double c) : a(a), b(b), c(c) {}
+    QuadraticEquation(double a, double b, double c) 
+    {
+        a = a ;
+        b = b ;
+        c = c ;
+    }
 
     // Method to calculate and display the roots
     void calculateRoots() {
