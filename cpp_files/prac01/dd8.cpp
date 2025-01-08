@@ -24,7 +24,7 @@ public:
             cout << "Root 1 = " << r1 << endl;
             cout << "Root 2 = " << r2 << endl;
         } else if (discriminant == 0) {
-            // One real root
+            //One real root
             r1 = -b / (2*a);
             cout << "Root is real and single: " << endl;
             cout << "Root = " << r1 << endl;
