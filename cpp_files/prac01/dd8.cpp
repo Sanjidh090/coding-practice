@@ -13,7 +13,7 @@ public:
     // Method to calculate and display the roots
     void calculateRoots() {
         double discriminant = b*b - 4*a*c;
-        double r1, r2; // Real parts of the root
+        double r1, r2; //Real parts of the root
         double imaginary; // Imaginary part of the root
 
         if (discriminant > 0) {
