@@ -29,7 +29,7 @@ public:
             cout << "Root is real and single: " << endl;
             cout << "Root = " << r1 << endl;
         } else {
-            // Complex roots
+            //Complex roots
             r1 = -b / (2*a);
             imaginary = sqrt(-discriminant) / (2*a);
             cout << "Roots are complex: " << endl;
