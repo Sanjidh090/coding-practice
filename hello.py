@@ -1,1 +1,1 @@
-print("hello gevgvek!")
+print("hello ggek!")
