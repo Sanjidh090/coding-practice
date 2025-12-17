@@ -232,5 +232,5 @@ class DataManager:
                     if time_diff < 2:
                         return False
             return True
-        except:
+        except (ValueError, TypeError):
             return True

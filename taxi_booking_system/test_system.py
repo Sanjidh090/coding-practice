@@ -5,12 +5,16 @@ Automated tests to verify system functionality
 
 import os
 import sys
+import tempfile
 
 # Add the taxi_booking_system directory to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from models import Customer, Driver, Administrator, Booking
 from data_manager import DataManager
+
+# Test directory constant
+TEST_DATA_DIR = os.path.join(tempfile.gettempdir(), "taxi_test_data")
 
 
 def test_models():
@@ -59,12 +63,11 @@ def test_data_manager():
     print("="*60)
     
     # Create a test data directory
-    test_dir = "/tmp/taxi_test_data"
-    if os.path.exists(test_dir):
+    if os.path.exists(TEST_DATA_DIR):
         import shutil
-        shutil.rmtree(test_dir)
+        shutil.rmtree(TEST_DATA_DIR)
     
-    dm = DataManager(test_dir)
+    dm = DataManager(TEST_DATA_DIR)
     print(f"✓ DataManager initialized with test directory")
     
     # Test customer operations
@@ -140,8 +143,7 @@ def test_authentication():
     print("Testing Authentication")
     print("="*60)
     
-    test_dir = "/tmp/taxi_test_data"
-    dm = DataManager(test_dir)
+    dm = DataManager(TEST_DATA_DIR)
     
     # Test customer authentication
     customer = dm.get_customer_by_username("test_user")
@@ -175,8 +177,7 @@ def test_booking_workflow():
     print("Testing Booking Workflow")
     print("="*60)
     
-    test_dir = "/tmp/taxi_test_data"
-    dm = DataManager(test_dir)
+    dm = DataManager(TEST_DATA_DIR)
     
     # Customer creates booking
     booking_id = dm.get_next_booking_id()
@@ -227,8 +228,7 @@ def test_id_generation():
     print("Testing ID Generation")
     print("="*60)
     
-    test_dir = "/tmp/taxi_test_data"
-    dm = DataManager(test_dir)
+    dm = DataManager(TEST_DATA_DIR)
     
     # Test customer ID generation
     next_id = dm.get_next_customer_id()

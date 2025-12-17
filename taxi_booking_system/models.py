@@ -107,5 +107,5 @@ class Booking:
         """Get datetime object from booking date and time"""
         try:
             return datetime.strptime(f"{self.booking_date} {self.booking_time}", "%Y-%m-%d %H:%M")
-        except:
+        except (ValueError, TypeError):
             return None
