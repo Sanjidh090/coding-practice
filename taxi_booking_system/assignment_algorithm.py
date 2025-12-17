@@ -17,14 +17,17 @@ class DriverAssignmentAlgorithm:
     4. Handles edge cases and conflicts
     """
     
+    # Earth's radius in kilometers for distance calculations
+    EARTH_RADIUS_KM = 6371.0
+    
     @staticmethod
     def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
         """
         Calculate distance between two coordinates using Haversine formula
         Returns distance in kilometers
         """
-        # Radius of Earth in kilometers
-        R = 6371.0
+        # Use class constant for Earth's radius
+        R = DriverAssignmentAlgorithm.EARTH_RADIUS_KM
         
         # Convert degrees to radians
         lat1_rad = math.radians(lat1)

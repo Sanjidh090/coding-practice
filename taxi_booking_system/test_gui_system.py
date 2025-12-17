@@ -215,11 +215,11 @@ def test_driver_assignment():
     # Create drivers at different locations
     drivers = [
         Driver("D001", "driver1", "pass123", "John Driver",
-              "555-0101", "DL001", 40.7128, -74.0060, is_hashed=True),  # Far
+              "555-0101", "DL001", 40.7128, -74.0060),  # Far
         Driver("D002", "driver2", "pass123", "Jane Driver",
-              "555-0102", "DL002", 40.7580, -73.9855, is_hashed=True),  # Very close
+              "555-0102", "DL002", 40.7580, -73.9855),  # Very close
         Driver("D003", "driver3", "pass123", "Bob Driver",
-              "555-0103", "DL003", 40.7614, -73.9776, is_hashed=True)   # Close
+              "555-0103", "DL003", 40.7614, -73.9776)   # Close
     ]
     
     # Create booking near driver2's location
@@ -279,9 +279,9 @@ def test_driver_recommendations():
     
     # Create drivers
     drivers = [
-        Driver("D001", "driver1", "pass", "John", "555-0101", "DL001", 40.7128, -74.0060, is_hashed=True),
-        Driver("D002", "driver2", "pass", "Jane", "555-0102", "DL002", 40.7580, -73.9855, is_hashed=True),
-        Driver("D003", "driver3", "pass", "Bob", "555-0103", "DL003", 40.7614, -73.9776, is_hashed=True)
+        Driver("D001", "driver1", "pass", "John", "555-0101", "DL001", 40.7128, -74.0060),
+        Driver("D002", "driver2", "pass", "Jane", "555-0102", "DL002", 40.7580, -73.9855),
+        Driver("D003", "driver3", "pass", "Bob", "555-0103", "DL003", 40.7614, -73.9776)
     ]
     
     booking = Booking("B001", "C001", "Times Square", "JFK", "2024-12-25", "10:00",

@@ -17,6 +17,26 @@ from PyQt5.QtGui import QFont, QIcon
 from models import Customer, Driver, Administrator, Booking
 from data_manager import DataManager
 from assignment_algorithm import DriverAssignmentAlgorithm
+import random
+
+
+def generate_mock_coordinates(base_lat: float = 40.7128, base_lon: float = -74.0060, 
+                             variance: float = 0.1) -> tuple:
+    """
+    Generate mock GPS coordinates for demo purposes.
+    In production, use geocoding API (Google Maps, OpenStreetMap, etc.)
+    
+    Args:
+        base_lat: Base latitude (default: NYC)
+        base_lon: Base longitude (default: NYC)
+        variance: Random variance range
+    
+    Returns:
+        Tuple of (latitude, longitude)
+    """
+    lat = base_lat + random.uniform(-variance, variance)
+    lon = base_lon + random.uniform(-variance, variance)
+    return (lat, lon)
 
 
 class LoginWindow(QDialog):
@@ -416,12 +436,9 @@ class MainWindow(QMainWindow):
         # Create booking with mock coordinates
         booking_id = self.data_manager.get_next_booking_id()
         
-        # Assign random coordinates for demo (in real app, use geocoding API)
-        import random
-        pickup_lat = 40.7128 + random.uniform(-0.1, 0.1)
-        pickup_lon = -74.0060 + random.uniform(-0.1, 0.1)
-        dropoff_lat = 40.7128 + random.uniform(-0.1, 0.1)
-        dropoff_lon = -74.0060 + random.uniform(-0.1, 0.1)
+        # Generate coordinates (in real app, use geocoding API)
+        pickup_lat, pickup_lon = generate_mock_coordinates()
+        dropoff_lat, dropoff_lon = generate_mock_coordinates()
         
         booking = Booking(
             booking_id, self.user.user_id, pickup, dropoff, date, time,

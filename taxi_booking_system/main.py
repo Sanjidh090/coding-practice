@@ -88,7 +88,7 @@ class TaxiBookingSystem:
         
         customer = self.data_manager.get_customer_by_username(username)
         
-        if customer and customer.password == password:
+        if customer and customer.verify_password(password):
             self.current_user = customer
             self.user_type = "customer"
             print("\n✓ Login successful!")
@@ -339,7 +339,7 @@ class TaxiBookingSystem:
         
         driver = self.data_manager.get_driver_by_username(username)
         
-        if driver and driver.password == password:
+        if driver and driver.verify_password(password):
             self.current_user = driver
             self.user_type = "driver"
             print("\n✓ Login successful!")
@@ -403,7 +403,7 @@ class TaxiBookingSystem:
         
         admin = self.data_manager.get_admin_by_username(username)
         
-        if admin and admin.password == password:
+        if admin and admin.verify_password(password):
             self.current_user = admin
             self.user_type = "admin"
             print("\n✓ Login successful!")
