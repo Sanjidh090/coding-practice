@@ -29,16 +29,23 @@ class DataManager:
             open(self.customers_file, 'w').close()
         
         if not os.path.exists(self.drivers_file):
-            # Create sample drivers
+            # Create sample drivers with hashed passwords
+            from models import Driver
             with open(self.drivers_file, 'w') as f:
-                f.write("D001|driver1|pass123|John Driver|555-0101|DL001\n")
-                f.write("D002|driver2|pass123|Jane Driver|555-0102|DL002\n")
-                f.write("D003|driver3|pass123|Bob Driver|555-0103|DL003\n")
+                # Create drivers with random locations in NYC area
+                d1 = Driver("D001", "driver1", "pass123", "John Driver", "555-0101", "DL001", 40.7580, -73.9855)
+                d2 = Driver("D002", "driver2", "pass123", "Jane Driver", "555-0102", "DL002", 40.7489, -73.9680)
+                d3 = Driver("D003", "driver3", "pass123", "Bob Driver", "555-0103", "DL003", 40.7614, -73.9776)
+                f.write(d1.to_string() + "\n")
+                f.write(d2.to_string() + "\n")
+                f.write(d3.to_string() + "\n")
         
         if not os.path.exists(self.admins_file):
-            # Create default admin
+            # Create default admin with hashed password
+            from models import Administrator
             with open(self.admins_file, 'w') as f:
-                f.write("A001|admin|admin123|System Administrator\n")
+                admin = Administrator("A001", "admin", "admin123", "System Administrator")
+                f.write(admin.to_string() + "\n")
         
         if not os.path.exists(self.bookings_file):
             open(self.bookings_file, 'w').close()

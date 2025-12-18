@@ -101,7 +101,7 @@ def test_data_manager():
     
     admin = dm.get_admin_by_username("admin")
     assert admin is not None
-    assert admin.password == "admin123"
+    assert admin.verify_password("admin123")
     print(f"✓ Administrator retrieved: {admin.name}")
     
     # Test booking operations
@@ -148,7 +148,7 @@ def test_authentication():
     # Test customer authentication
     customer = dm.get_customer_by_username("test_user")
     assert customer is not None
-    assert customer.password == "test123"
+    assert customer.verify_password("test123")
     print(f"✓ Customer authentication successful")
     
     # Test invalid customer
@@ -159,13 +159,13 @@ def test_authentication():
     # Test driver authentication
     driver = dm.get_driver_by_username("driver1")
     assert driver is not None
-    assert driver.password == "pass123"
+    assert driver.verify_password("pass123")
     print(f"✓ Driver authentication successful")
     
     # Test admin authentication
     admin = dm.get_admin_by_username("admin")
     assert admin is not None
-    assert admin.password == "admin123"
+    assert admin.verify_password("admin123")
     print(f"✓ Administrator authentication successful")
     
     print("\n✅ All authentication tests passed!")
